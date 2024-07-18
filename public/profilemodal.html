@@ -1,0 +1,30 @@
+ <!-- Profile Modal -->
+ <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="modal-dialog" role="document">
+        <div class="modal-content" id="modal-content">
+            <div class="modal-header">
+                <img src="assets/Profile.png" id="profilepicture2" style="height:50px; width: 50px; border-radius: 50%; border: 2px solid #ffffff;">
+
+                <h5 class="modal-title" id="profileModalLabel">Profil</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Hier kommt der Inhalt deines Profil-Popups -->
+                <!-- Beispielinhalt: -->
+                <p>Email: <span id="modalEmail"></span></p>
+                <p>Level: 52<span id="modallevel"></span></p>
+                <p>Playtime: <span id="modalplaytime"></span></p>
+                <button type="button" class="btn btn-warning" id="settingsbutton">Einstellung</button>
+                <button type="button" class="btn btn-danger" id="logoutButton">Abmelden</button>
+                <!-- Beispielinhalt Ende -->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/generic.js"></script>

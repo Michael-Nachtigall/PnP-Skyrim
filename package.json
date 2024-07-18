@@ -1,0 +1,26 @@
+{
+  "name": "pnp-skyrim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodeom server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+    "express": "^4.19.2",
+    "express-php-fpm": "^3.0.0",
+    "jquery": "^3.7.1",
+    "msnodesqlv8": "^4.2.1",
+    "mssql": "^11.0.0",
+    "mysql": "^2.18.1",
+    "php": "^1.1.0",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
+  }
+}

@@ -1,0 +1,17 @@
+        /* Zusätzliche CSS-Stile für das Modal */
+        .modal-dialog {
+            position: absolute;
+            top: 50px; /* Abstand vom oberen Rand */
+            right: 20px; /* Abstand vom rechten Rand */
+            width: 400px; /* Breite des Modals */
+            max-width: calc(100% - 40px); /* Maximalbreite, damit es nicht über den Rand hinausgeht */
+        }
+        .modal-content {
+            border-radius: 0;
+            box-shadow: none;
+            Background-color: #1f1f1f;
+        }
+        .modal-title{
+            padding-left:15px;
+            padding-top: 8px;;
+        }

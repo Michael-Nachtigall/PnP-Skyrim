@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiel - PnP-Skyrim</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/game.css">
+    <link rel="icon" href="assets/favicon.jpg" type="image/x-icon"> 
+
+</head>
+<body>
+   
+    <div id="navbar-placeholder"></div>
+    <div id="profile-modal-placeholder"></div>
+    <div id="lobby-placeholder"></div>
+
+    <div class="container-fluid mt-3 full-height">
+        <div class="row h-100">
+            <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center">
+                <img src="assets/CharacterL.png" alt="Character Left" class="character-img">
+            </div>
+            <div class="col-md-8 h-100">
+                <ul class="nav nav-tabs" id="gameTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="chat-tab" data-toggle="tab" href="#chat" role="tab" aria-controls="chat" aria-selected="true">Chat</a>
+
+                        <div class="coins">    
+                            <img src="assets/Coin.png" alt="Coin" class ="coin">   
+                            150
+
+                       </div>
+                       <div class="healthbarimage">
+                        <img  style="width:200px; height: 20px;" src ="assets/Healtbar.png">
+                        <div class="health-bar">
+                         <div class="health-bar-inner" style="width: 70%;"></div>
+                       </div>
+                    </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="inventory-tab" data-toggle="tab" href="#inventory" role="tab" aria-controls="inventory" aria-selected="false">Inventar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="quest-tab" data-toggle="tab" href="#quest" role="tab" aria-controls="quest" aria-selected="false">Quests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="fähigkeiten-tab" data-toggle="tab" href="#fähigkeiten" role="tab" aria-controls="fähigkeiten" aria-selected="false">Fähigkeiten</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ausrüstung-tab" data-toggle="tab" href="#ausrüstung" role="tab" aria-controls="ausrüstung" aria-selected="false">Ausrüstung</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+                    </li>
+                    <button class="btn btn-danger align-self-end mt-2" id="leaveLobbyButton">Lobby verlassen</button> <!-- Lobby verlassen Button -->
+                </ul>
+                <div class="tab-content h-100 mt-3" id="gameTabsContent">
+                    <div class="tab-pane fade show active h-100" id="chat" role="tabpanel" aria-labelledby="chat-tab">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title" id="Cardlobby"></h3>
+                                <div class="flex-grow-1 mb-3" style="overflow-y: auto;">
+                                    <!-- Chat messages go here -->
+                                </div>
+                                <textarea class="form-control mb-2" rows="3" placeholder="Nachricht eingeben..."></textarea>
+                                <button class="btn btn-primary align-self-end">Senden</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">Inventar</h3>
+                                <input type="text" id="filterInventory" class="form-control mb-3" placeholder="Filter...">
+                                <ul class="list-group">
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Schwert" data-durability="80%" data-damage="10" data-value="50">Schwert</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Schild" data-durability="100%" data-damage="0" data-value="30">Schild</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Heiltrank" data-durability="Single Use" data-damage="0" data-value="20">Heiltrank</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Zauberstab" data-durability="50%" data-damage="15" data-value="100">Zauberstab</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Magisches Amulett" data-durability="100%" data-damage="5" data-value="80">Magisches Amulett</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Buch der Weisheit" data-durability="100%" data-damage="0" data-value="70">Buch der Weisheit</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="quest" role="tabpanel" aria-labelledby="quest-tab">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">Quests</h3>
+                                <input type="text" id="filterQuests" class="form-control mb-3" placeholder="Filter...">
+                                <ul class="list-group">
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="König" data-durability="dies das" data-damage="10%" data-value="50 Coins">König</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Königin" data-durability="dies das" data-damage="0%" data-value="30 Coins">Königin</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Wächter" data-durability="dies das" data-damage="0%" data-value="20 Coins">Wächter</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Taverne" data-durability="dies das" data-damage="15%" data-value="100 Coins">Taverne</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Die Welt" data-durability="dies das" data-damage="5%" data-value="80 Coins">MDie Welt</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Letzte Hoffnung" data-durability="dies das" data-damage="0%" data-value="70 Coins">Letzte Hoffnung</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="fähigkeiten" role="tabpanel" aria-labelledby="fähigkeiten-tab">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">Fähigkeiten</h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="König" data-durability="dies das" data-damage="10%" data-value="50 Coins">König</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Königin" data-durability="dies das" data-damage="0%" data-value="30 Coins">Königin</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Wächter" data-durability="dies das" data-damage="0%" data-value="20 Coins">Wächter</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Taverne" data-durability="dies das" data-damage="15%" data-value="100 Coins">Taverne</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Die Welt" data-durability="dies das" data-damage="5%" data-value="80 Coins">MDie Welt</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Letzte Hoffnung" data-durability="dies das" data-damage="0%" data-value="70 Coins">Letzte Hoffnung</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="ausrüstung" role="tabpanel" aria-labelledby="ausrüstung-tab">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">Ausrüstung</h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="König" data-durability="dies das" data-damage="10%" data-value="50 Coins">König</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Königin" data-durability="dies das" data-damage="0%" data-value="30 Coins">Königin</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Wächter" data-durability="dies das" data-damage="0%" data-value="20 Coins">Wächter</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Taverne" data-durability="dies das" data-damage="15%" data-value="100 Coins">Taverne</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Die Welt" data-durability="dies das" data-damage="5%" data-value="80 Coins">MDie Welt</li>
+                                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" data-name="Letzte Hoffnung" data-durability="dies das" data-damage="0%" data-value="70 Coins">Letzte Hoffnung</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">Settings</h3>
+                                <p class="card-text">Ändern Sie Ihre Einstellungen hier:</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showNotifications">
+                                    <label class="form-check-label" for="showNotifications">
+                                        Benachrichtigungen anzeigen
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="darkMode">
+                                    <label class="form-check-label" for="darkMode">
+                                        Dark Mode aktivieren
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center">
+                <img src="assets/CharacterR.png" alt="Character Right" class="character-imgR">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Item Details -->
+    <div class="modal fade" id="itemDetailsModal" tabindex="-1" role="dialog" aria-labelledby="itemDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itemDetailsModalLabel">Item Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="itemDetails">
+                        <p><strong>Name:</strong> <span id="itemName"></span></p>
+                        <p><strong>Haltbarkeit:</strong> <span id="itemDurability"></span></p>
+                        <p><strong>Schaden:</strong> <span id="itemDamage"></span></p>
+                        <p><strong>Wert:</strong> <span id="itemValue"></span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Item Details -->
+    <div class="modal fade" id="questDetailsModal" tabindex="-1" role="dialog" aria-labelledby="questDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="questDetailsModalLabel">Quests</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="QuestDetails">
+                        <p><strong>Name:</strong> <span id="itemName"></span></p>
+                        <p><strong>Beschreibung:</strong> <span id="itemDurability"></span></p>
+                        <p><strong>Fortschritt:</strong> <span id="itemDamage"></span></p>
+                        <p><strong>Belohnung:</strong> <span id="itemValue"></span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-5">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Pen and Paper Rollenspiele</span>
+        </div>
+    </footer>
+   
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src ="/js/generic.js"></script>
+    <script src ="/js/game.js"></script>
+    
+
+</body>
+</html>
+</html>

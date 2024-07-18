@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #1f1f1f;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+
+.footer {
+    background-color: #1f1f1f;
+    color: #888888;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .text-muted {
+    color: #888888 !important;
+}
+
+.jumbotron {
+    background-color: #1f1f1f;
+    color: #ffffff;
+}

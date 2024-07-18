@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby Auswahl</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <link rel="stylesheet" href="/CSS/game.css">
+    <link rel="stylesheet" href="/CSS/lobby.css">
+</head>
+<body>
+
+<!-- Modal for Lobby Selection -->
+<div class="modal fade" id="lobbySelectionModal" tabindex="-1" role="dialog" aria-labelledby="lobbySelectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lobbySelectionModalLabel">Lobby Auswahl</h5>
+            </div>
+            <div class="modal-body">
+                <!-- Tabs for Create Lobby and Join Lobby -->
+                <ul class="nav nav-tabs" id="lobbyTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="create-tab" data-toggle="tab" href="#create" role="tab" aria-controls="create" aria-selected="true">Lobby erstellen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="join-tab" data-toggle="tab" href="#join" role="tab" aria-controls="join" aria-selected="false">Lobby beitreten</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="lobbyTabContent">
+                    <div class="tab-pane fade show active" id="create" role="tabpanel" aria-labelledby="create-tab">
+                        <form id="createLobbyForm">
+                            <div class="form-group">
+                                <label for="lobbyName">Lobby Name:</label>
+                                <input type="text" id="lobbyName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lobbyPasswordCheckbox">
+                                    <input type="checkbox" id="lobbyPasswordCheckbox"> Passwort erforderlich
+                                </label>
+                            </div>
+                            <div class="form-group" id="lobbyPasswordContainer" style="display: none;">
+                                <label for="newLobbyPassword">Passwort:</label>
+                                <input type="password" id="newLobbyPassword" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Erstellen</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="join" role="tabpanel" aria-labelledby="join-tab">
+                        <div class="form-group">
+                            <input type="text" id="filterLobbies" class="form-control" placeholder="Filter Lobbies...">
+                        </div>
+                        <ul class="list-group" id="lobbyList">
+                            <!-- Dynamically populated list of lobbies -->
+                        </ul>
+                        <div class="form-group mt-3" id="passwordContainer" style="display: none;">
+                             <h3 id="selname">lobby</h3>
+                            <label for="lobbyPassword">Passwort:</label>
+                            <input type="password" id="lobbyPassword" class="form-control">
+                            <button class="btn btn-primary mt-2" id="joinLobbyBtn">Beitreten</button>
+                            <button class="btn btn-secondary mt-2" id="cancelJoinBtn">Abbrechen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/JS/generic.js"></script>
+<!-- Your custom JavaScript -->
+<script src="JS/lobby.js"></script>
+</body>
+</html>

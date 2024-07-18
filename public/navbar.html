@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- navbar.html -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark" id="Navbar">
+    <a class="navbar-brand" href="index.html">Pen and Paper</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" id="NeedLogin">
+                <a class="nav-link" href="contact.html">Kontakt</a>
+            </li>
+            <li class="nav-item active" id="NeedLogin1">
+                <a class="nav-link" href="characters.html">Charaktere <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" id="NeedLogin2">
+                <a class="nav-link"  href="game.html" id="playButton">Spielen</a>
+            </li>
+        </ul>
+            <input type="range" min="0" value="20" max="100" class="slider" id="volume-slider">
+            <img src="assets/mute.png" class="mute-btn" id="mute" style="height:50px; width: 50px;">
+
+            <a class="nav-link"  id="navbarUsername" ></a>
+            <img src="assets/Profile.png" data-toggle="modal" data-target="#profileModal" id="profilepicture" style="height:50px; width: 50px; border-radius: 50%; border: 2px solid #ffffff;">
+    </div>
+    <audio id="background-music" src="/audio/Dragonborn.mp3" loop preload="auto"></audio>
+</nav>
+</body>
+<script src="/js/music.js"></script>
+<script src="/js/generic.js"></script>

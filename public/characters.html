@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charaktere - PnP-Skyrim</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/characters.css">
+    <link rel="icon" href="assets/favicon.jpg" type="image/x-icon"> 
+</head>
+<body>
+   
+    <div id="navbar-placeholder"></div>
+
+    <div id="profile-modal-placeholder"></div>
+
+
+    <div class="container-fluid mt-3 full-height">
+        <div class="row h-100">
+            <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center">
+                <img src="assets/CharacterL.png" alt="Character Image" class="character-img">
+            </div>
+            <div class="col-md-8 h-100">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Charakter Auswahl</h3>
+                        <p class="card-text">Wählen Sie einen Charakter aus:</p>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#characterDetailsModal" data-character-id="1">Charakter 1</a>
+                            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#characterDetailsModal" data-character-id="2">Charakter 2</a>
+                            <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#characterDetailsModal" data-character-id="3">Charakter 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center">
+                <img src="assets/CharacterR.png" alt="Character Right" class="character-imgR"
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Character Details -->
+    <div class="modal fade" id="characterDetailsModal" tabindex="-1" role="dialog" aria-labelledby="characterDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="characterDetailsModalLabel">Charakter Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="characterTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="inventory-tab" data-toggle="tab" href="#inventory" role="tab" aria-controls="inventory" aria-selected="false">Inventar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="quests-tab" data-toggle="tab" href="#quests" role="tab" aria-controls="quests" aria-selected="false">Quests</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-3" id="characterTabsContent">
+                        <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+                            <!-- Details werden dynamisch eingefügt -->
+                        </div>
+                        <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
+                            <!-- Inventar wird dynamisch eingefügt -->
+                        </div>
+                        <div class="tab-pane fade" id="quests" role="tabpanel" aria-labelledby="quests-tab">
+                            <!-- Quests werden dynamisch eingefügt -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Quest Details -->
+    <div class="modal fade" id="questDetailsModal" tabindex="-1" role="dialog" aria-labelledby="questDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="questDetailsModalLabel">Quest Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="questDetails">
+                        <p><strong>Auftraggeber:</strong> <span id="questProvider"></span></p>
+                        <p><strong>Beschreibung:</strong></p>
+                        <p id="questDescription"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Item Details -->
+    <div class="modal fade" id="itemDetailsModal" tabindex="-1" role="dialog" aria-labelledby="itemDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itemDetailsModalLabel">Item Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="itemDetails">
+                        <p><strong>Name:</strong> <span id="itemName"></span></p>
+                        <p><strong>Haltbarkeit:</strong> <span id="itemDurability"></span></p>
+                        <p><strong>Schaden:</strong> <span id="itemDamage"></span></p>
+                        <p><strong>Wert:</strong> <span id="itemValue"></span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer mt-auto py-3" id="Footer">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Pen and Paper Rollenspiele</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/JS/generic.js"></script>
+    <script src="/JS/characters.js"></script>
+   
+    <script>
+        // Simulierte Charakterdaten für Demonstration
+        var characters = {
+            1: {
+                name: 'Charakter 1',
+                health: '80%',
+                coins: 150,
+                playtime: '5 Stunden',
+                position: 'Stadt XY',
+                quests: [
+                    { provider: 'König', description: 'Besorge das verlorene Schwert des Königs.' },
+                    { provider: 'Dorfältester', description: 'Beschütze das Dorf vor den heranrückenden Orks.' }
+                ],
+                inventory: [
+                    { name: 'Schwert', durability: '80%', damage: 10, value: 50 },
+                    { name: 'Schild', durability: '100%', damage: 0, value: 30 },
+                    { name: 'Heiltrank', durability: 'Single Use', damage: 0, value: 20 },
+                    { name: 'Zauberstab', durability: '50%', damage: 15, value: 100 },
+                    { name: 'Magisches Amulett', durability: '100%', damage: 5, value: 80 },
+                    { name: 'Buch der Weisheit', durability: '100%', damage: 0, value: 70 }
+                ]
+            },
+            2: {
+                name: 'Charakter 2',
+                health: '70%',
+                coins: 200,
+                playtime: '8 Stunden',
+                position: 'Burg Z',
+                quests: [
+                    { provider: 'Magierin', description: 'Finde das verschollene Zauberbuch der Magierin.' },
+                    { provider: 'Druide', description: 'Beschütze den heiligen Hain vor der Zerstörung.' }
+                ],
+                inventory: [
+                    { name: 'Bogen', durability: '70%', damage: 12, value: 60 },
+                    { name: 'Heiltrank', durability: 'Single Use', damage: 0, value: 20 },
+                    { name: 'Stab des Waldes', durability: '80%', damage: 18, value: 120 },
+                    { name: 'Elfenamulett', durability: '100%', damage: 8, value: 90 },
+                    { name: 'Kristallkugel', durability: '100%', damage: 3, value: 40 }
+                ]
+            },
+            3: {
+                name: 'Charakter 3',
+                health: '90%',
+                coins: 100,
+                playtime: '3 Stunden',
+                position: 'Dorf A',
+                quests: [
+                    { provider: 'Schmied', description: 'Sammle Erz für die neue Waffenschmiede.' },
+                    { provider: 'Bürgermeister', description: 'Repariere die Brücke zum Nachbardorf.' }
+                ],
+                inventory: [
+                    { name: 'Axt', durability: '90%', damage: 15, value: 70 },
+                    { name: 'Heiltrank', durability: 'Single Use', damage: 0, value: 20 },
+                    { name: 'Schutzamulett', durability: '100%', damage: 4, value: 50 },
+                    { name: 'Spitzhacke', durability: '80%', damage: 8, value: 30 }
+                ]
+            }
+        };
+
+        // Charakterdetails anzeigen
+        $('#characterDetailsModal').on('show.bs.modal', function (event) {
+            var characterId = $(event.relatedTarget).data('character-id');
+            var character = characters[characterId];
+
+            var modal = $(this);
+            modal.find('.modal-title').text('Details für ' + character.name);
+
+            // Details Tab
+            var detailsHtml = `
+                <h5>Charakter Details</h5>
+                <p><strong>Name:</strong> ${character.name}</p>
+                <p><strong>Lebenspunkte:</strong> ${character.health}</p>
+                <p><strong>Coins:</strong> ${character.coins}</p>
+                <p><strong>Spielzeit:</strong> ${character.playtime}</p>
+                <p><strong>Position:</strong> ${character.position}</p>
+            `;
+            modal.find('#details').html(detailsHtml);
+
+            // Inventar Tab
+            var inventoryHtml = `
+                <h5>Inventar</h5>
+                <ul class="list-group">`;
+            character.inventory.forEach(item => {
+                inventoryHtml += `
+                    <li class="list-group-item" data-toggle="modal" data-target="#itemDetailsModal" 
+                        data-name="${item.name}" data-durability="${item.durability}" 
+                        data-damage="${item.damage}" data-value="${item.value}">
+                        ${item.name}
+                    </li>
+                `;
+            });
+            inventoryHtml += `</ul>`;
+            modal.find('#inventory').html(inventoryHtml);
+
+            // Quests Tab
+            var questsHtml = `
+                <h5>Quests</h5>
+                <ul class="list-group">`;
+            character.quests.forEach((quest, index) => {
+                questsHtml += `
+                    <li class="list-group-item" data-toggle="modal" data-target="#questDetailsModal"
+                        data-provider="${quest.provider}" data-description="${quest.description}">
+                        Quest ${index + 1}
+                    </li>
+                `;
+            });
+            questsHtml += `</ul>`;
+            modal.find('#quests').html(questsHtml);
+        });
+
+        // Quest Details anzeigen
+        $('#questDetailsModal').on('show.bs.modal', function (event) {
+            var listItem = $(event.relatedTarget);
+            var questProvider = listItem.data('provider');
+            var questDescription = listItem.data('description');
+            var modal = $(this);
+            modal.find('.modal-title').text('Quest Details');
+            modal.find('#questProvider').text(questProvider);
+            modal.find('#questDescription').text(questDescription);
+        });
+
+         // Show item details in modal on click
+        $('#itemDetailsModal').on('show.bs.modal', function (event) {
+            var listItem = $(event.relatedTarget); // Button that triggered the modal
+            var itemName = listItem.data('name');
+            var itemDurability = listItem.data('durability');
+            var itemDamage = listItem.data('damage');
+            var itemValue = listItem.data('value');
+            var modal = $(this);
+            modal.find('.modal-title').text('Details für ' + itemName);
+            modal.find('#itemName').text(itemName);
+            modal.find('#itemDurability').text(itemDurability);
+            modal.find('#itemDamage').text(itemDamage);
+            modal.find('#itemValue').text(itemValue);
+        });
+
+    </script>
+</body>
+</html>

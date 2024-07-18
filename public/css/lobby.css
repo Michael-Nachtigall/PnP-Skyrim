@@ -1,0 +1,19 @@
+/* Custom styles for modals */
+.modal-title {
+    font-size: 1.5rem;
+}
+
+.modal-body .form-group {
+    margin-bottom: 1rem;
+    max-height: 60vh; /* Adjust this value as needed */
+    overflow-y: auto;
+}
+
+.modal-body .list-group-item {
+    cursor: pointer;
+}
+
+#lobbyList {
+    max-height: 40vh; /* Adjust this value as needed */
+    overflow-y: auto;
+}

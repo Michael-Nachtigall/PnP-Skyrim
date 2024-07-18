@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - PnP-Skyrim</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="assets/favicon.jpg" type="image/x-icon"> 
+    <script src="/JS/generic.js" defer></script>
+</head>
+<body>
+   
+    <div id="navbar-placeholder"></div>
+    <div id="profile-modal-placeholder"></div>
+
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Kontaktiere uns</h1>
+            <p class="lead">Hast du Fragen oder Anregungen? Schreibe uns eine Nachricht:</p>
+            <hr class="my-4">
+            <form action="https://formsubmit.co/nachtigallmichael@outlook.de" method="POST" >
+                <div class="form-group">
+                    <label for="contactName">Name</label>
+                    <input type="text" name="name" class="form-control"  requirded>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">E-Mail Adresse</label>
+                    <input type="email" name="email" class="form-control"  required>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Nachricht</label>
+                    <textarea class="form-control" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Absenden</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">© 2024 Pen and Paper Rollenspiele</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/JS/generic.js"></script>
+    <script src="/JS/contact.js"></script>
+    
+</body>
+</html>

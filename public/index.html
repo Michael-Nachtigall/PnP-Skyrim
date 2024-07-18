@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PnP-Skyrim</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="assets/favicon.jpg" type="image/x-icon"> 
+    <script src="/JS/generic.js" defer></script>
+</head>
+<body class="Background-Image">
+
+    <audio id="background-music" src="/audio/Dragonborn.mp3" loop preload="auto"></audio>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Pen and Paper</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" id="NeedLogin">
+                    <a class="nav-link" href="contact.html">Kontakt</a>
+                </li>
+                <li class="nav-item active" id="NeedLogin1">
+                    <a class="nav-link" href="characters.html">Charaktere <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="NeedLogin2">
+                    <a class="nav-link"  href="game.html" id="playButton">Spielen</a>
+                </li>
+                <li class="nav-item" id="loginLink">
+                    <a class="nav-link" href="login.html">Einloggen</a>
+                </li>
+            </ul>
+            <input type="range" min="0" max="100" class="slider" id="volume-slider">
+            <img src="assets/Unmute.png" class="mute-btn" id="mute" style="height:50px; width: 50px;">
+                <a class="nav-link"  id="navbarUsername" ></a>
+                <img src="assets/Profile.png" data-toggle="modal" data-target="#profileModal" id="profilepicture" style="height:50px; width: 50px; border-radius: 50%; border: 2px solid #ffffff;">
+        </div>
+    </nav>
+
+    <div id="profile-modal-placeholder"></div>
+
+    <header class="jumbotron text-center">
+        <h1 class="display-4">Willkommen bei PnP Skyrim</h1>
+        <p class="lead">Erstelle deine eigenen Abenteuer und Charaktere.</p>
+        <a href="game.html" class="btn btn-primary btn-lg mt-3" id="LoginButton" style="display:none;">Jetzt Spielen</a>
+        <a href="login.html" class="btn btn-primary btn-lg mt-3" id="registerButton" style="display: none;">Registrieren</a>
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Abenteuer</h2>
+                        <p class="card-text">Erlebe epische Abenteuer in der fantastischen Elderscrolls Welt. Egal ob
+                            schlachte, oder handel es gibt keine Grenzen.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Charaktere</h2>
+                        <p class="card-text">Kreiere einzigartige Charaktere mit verschiedenen Fähigkeiten und
+                            Hintergründen.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Gemeinschaft</h2>
+                        <p class="card-text">Trete unserer wachsenden Gemeinschaft von Pen-and-Paper-Spielern bei und
+                            teile deine Erlebnisse.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id ="footer" class="footer mt-auto py-3">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 Pen and Paper Rollenspiele</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/JS/index.js"></script>
+    <script src="/js/music.js"></script>
+
+    
+</body>
+<script>
+ const storedprofilepicture = sessionStorage.getItem('profilepicture');
+     const modalprofilepicture = document.getElementById('profilepicture2');
+    if (modalprofilepicture) {
+        modalprofilepicture.src = storedprofilepicture;
+    }
+
+    const storedUsername = sessionStorage.getItem('username');
+    const navbarUsername = document.getElementById('navbarUsername');
+    if (storedUsername) {
+        navbarUsername.textContent = storedUsername;
+    } else {
+        window.location.href = 'login.html';
+    }
+
+    $(document).ready(function() {
+            $("#profile-modal-placeholder").load("profilemodal.html");
+        });
+</script>
+</html>
